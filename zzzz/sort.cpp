@@ -80,7 +80,26 @@ void insertionSort(int* array, int length) {
         array[j + 1] = key;
     }
 }
+int partition(int* array, int low, int high) {
+    int pivot = array[high];
+    int i = low - 1;
+    for (int j = low; j <= high - 1; j++) {
+        if (array[j] < pivot) {
+            i++;
+            swap(array[i], array[j]);
+        }
+    }
+    swap(array[i + 1], array[high]);
+    return i + 1;
+}
 
+void quickSort(int* array, int low, int high) {
+    if (low < high) {
+        int pivot = partition(array, low, high);
+        quickSort(array, low, pivot - 1);
+        quickSort(array, pivot + 1, high);
+    }
+}
 void findValue(int value, int* array, int length) {
     bool found = false;
     vector<int> positions;
@@ -125,9 +144,19 @@ void sortArray(int* array, int length, int op) {
     case 3:
         selectionSort(array, length);
         message = "Selection sort";
+        break;
     case 4:
         insertionSort(array, length);
         message = "Insertion sort";
+        break;
+    case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        quickSort(array, 0, length - 1);
+        message = "Quick sort";
+        break;
     default:
         break;
     }
