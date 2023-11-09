@@ -18,6 +18,14 @@ void printArray(int* array, int length) {
     }
     cout << endl;
 }
+/**
+ * @brief Partitions an array around a pivot element.
+ *
+ * @param array Pointer to the array to be partitioned.
+ * @param low Index of the first element of the array.
+ * @param high Index of the last element of the array.
+ * @return int Index of the pivot element after partitioning.
+ */
 int partition(int* array, int low, int high) {
     int pivot = array[high];
     int i = low - 1;
@@ -31,6 +39,12 @@ int partition(int* array, int low, int high) {
     return i + 1;
 }
 
+/**
+ * Sorts an array of integers using the QuickSort algorithm.
+ * @param array - The array to be sorted.
+ * @param low - The lowest index of the array.
+ * @param high - The highest index of the array.
+ */
 void quickSort(int* array, int low, int high) {
     if (low < high) {
         int pivot = partition(array, low, high);
@@ -38,7 +52,6 @@ void quickSort(int* array, int low, int high) {
         quickSort(array, pivot + 1, high);
     }
 }
-
 int main() {
     int length;
     cout << "Ingresa el tamaño del vector: ";
@@ -51,7 +64,7 @@ int main() {
     }
     cout << endl << "Array desordenado: ";
     printArray(array, length);
-    //quick sort//
+    //quick sort
     int low = 0;
     int high = length - 1;
     quickSort(array, low, high);

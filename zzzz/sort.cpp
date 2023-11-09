@@ -80,6 +80,12 @@ void insertionSort(int* array, int length) {
         array[j + 1] = key;
     }
 }
+void binaryInsertionSort() {
+
+}
+void shellSort() {
+
+}
 int partition(int* array, int low, int high) {
     int pivot = array[high];
     int i = low - 1;
@@ -92,13 +98,15 @@ int partition(int* array, int low, int high) {
     swap(array[i + 1], array[high]);
     return i + 1;
 }
-
 void quickSort(int* array, int low, int high) {
     if (low < high) {
         int pivot = partition(array, low, high);
         quickSort(array, low, pivot - 1);
         quickSort(array, pivot + 1, high);
     }
+}
+void heapSort() {
+
 }
 void findValue(int value, int* array, int length) {
     bool found = false;

@@ -16,16 +16,22 @@ void printArray(int* array, int length) {
     }
     cout << endl;
 }
+/**
+ * Sorts an array of integers using the insertion sort algorithm.
+ * @param array - The array to be sorted.
+ * @param length - The length of the array.
+ */
 void insertionSort(int* array, int length) {
     int i, j, key;
     for (i = 1; i < length; i++) {
         key = array[i];
-        j = i - 1;
-        while (j >= 0 && array[j] > key) {
+        for (j = i - 1; j >= 0 && array[j] > key; j--) {
             array[j + 1] = array[j];
-            j--;
         }
         array[j + 1] = key;
+        cout << endl << "corrida " << i << " : ";
+        printArray(array, length);
+        cout << endl;
     }
 }
 int main() {

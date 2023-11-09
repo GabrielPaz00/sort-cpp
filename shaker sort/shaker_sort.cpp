@@ -18,6 +18,12 @@ void printArray(int* array, int length) {
   }
   cout << endl;
 }
+/**
+ * Sorts an array of integers using the shaker sort algorithm.
+ *
+ * @param array Pointer to the array to be sorted.
+ * @param length Length of the array to be sorted.
+ */
 void shakerSort(int* array, int length) {
   int i;
   int j = length - 1;

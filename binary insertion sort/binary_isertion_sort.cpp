@@ -4,8 +4,10 @@
 using namespace std;
 
 void printArray(int* array, int length) {
-    cout << "[";
     for (int i = 0; i < length; i++) {
+        if (i == 0) {
+            cout << "[";
+        }
         cout << array[i];
         if (i == length - 1) {
             cout << "]";
@@ -16,28 +18,29 @@ void printArray(int* array, int length) {
     }
     cout << endl;
 }
-/**
- * Sorts an array of integers using the selection sort algorithm.
- *
- * @param array Pointer to the first element of the array to be sorted.
- * @param length Number of elements in the array.
- */
-void selectionSort(int* array, int length) {
+void binaryInsertionSort(int* array, int length) {
     int i;
-    int n = length - 1;
+    int j = length - 1;
     int aux;
 
-    for (i = 0; i < n; i++) {
-        // left to right
-        int min_index = i;
-        for (int j = i + 1; j < length; j++) {
-            if (array[j] < array[min_index]) {
-                min_index = j;
+    for (int i = 0; i < j; i++) {
+        // left
+        for (int i = 0; i < j; i++) {
+            if (array[i] > array[i + 1]) {
+                aux = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = aux;
             }
         }
-        aux = array[i];
-        array[i] = array[min_index];
-        array[min_index] = aux;
+        /*
+        //right
+        for (int i = j; i > 0; i--) {
+          if (array[i] < array[i - 1]) {
+            aux = array[i];
+            array[i] = array[i - 1];
+            array[i - 1] = aux;
+          }
+        }*/
     }
 }
 int main() {
@@ -55,7 +58,7 @@ int main() {
         << "Array desordenado: ";
     printArray(array, length);
     // sort array by shaker sort
-    selectionSort(array, length);
+    binaryInsertionSort(array, length);
     //------------------------//
     cout << endl
         << "Array ordenado: ";
