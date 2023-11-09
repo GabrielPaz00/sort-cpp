@@ -196,8 +196,43 @@ void quickSort(int* array, int low, int high) {
         quickSort(array, pivot + 1, high);
     }
 }
-void heapSort() {
+/**
+ * @brief Reoarganiza los elementos de un arreglo para formar un heap.
+ *
+ * @param array Puntero al arreglo que se va a heapificar.
+ * @param length Número de elementos en el arreglo.
+ * @param i Índice de la raíz del subárbol que se va a heapificar.
+ */
+void heapify(int* array, int length, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
 
+    if (left < length && array[left] > array[largest])
+        largest = left;
+
+    if (right < length && array[right] > array[largest])
+        largest = right;
+
+    if (largest != i) {
+        swap(array[i], array[largest]);
+        heapify(array, length, largest);
+    }
+}
+/**
+ * @brief Ordena un arreglo utilizando el algoritmo Heap Sort.
+ *
+ * @param array Arreglo a ordenar.
+ * @param length Longitud del arreglo.
+ */
+void heapSort(int* array, int length) {
+    for (int i = length / 2 - 1; i >= 0; i--)
+        heapify(array, length, i);
+
+    for (int i = length - 1; i >= 0; i--) {
+        swap(array[0], array[i]);
+        heapify(array, i, 0);
+    }
 }
 /**
  * @brief Busca un valor en un arreglo y muestra las posiciones donde se encuentra.
@@ -283,7 +318,7 @@ void sortArray(int* array, int length, int op) {
         message = "Quick sort";
         break;
     case 8:
-        heapSort();
+        heapSort(array, length);
         message = "Heap sort";
     default:
         break;
