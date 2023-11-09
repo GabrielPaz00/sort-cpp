@@ -18,20 +18,45 @@ void printArray(int* array, int length) {
     }
     cout << endl;
 }
-void binaryInsertionSort(int* array, int length) {
-    int i;
-    int j = length - 1;
-    int aux;
+/**
+ * @param array The array to search in.
+ * @param low The lower index of the array.
+ * @param high The upper index of the array.
+ * @param key The value to search for in the array.
+*/
+int binarySearch(int* array, int low, int high, int key) {
 
-    for (int i = 0; i < j; i++) {
-        // left
-        for (int i = 0; i < j; i++) {
-            if (array[i] > array[i + 1]) {
-                aux = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = aux;
-            }
+    if (high <= low) {
+        return (key > array[low]) ? (low + 1) : low;
+    }
+    int mid = (low + high) / 2;
+    if (key == array[mid]) {
+        return mid;
+    }
+    if (key > array[mid]) {
+        return binarySearch(array, mid + 1, high, key);
+    }
+    else {
+        return binarySearch(array, low, mid - 1, key);
+    }
+}
+/**
+ * Sorts an array of integers using the binary insertion sort algorithm.
+ * @param array The array to be sorted.
+ * @param length The length of the array.
+ */
+void binaryInsertionSort(int* array, int length) {
+    int i, j, key, location;
+    for (i = 1; i < length; i++) {
+        key = array[i];
+        location = binarySearch(array, 0, i - 1, key);
+        for (j = i - 1; j >= location; j--) {
+            array[j + 1] = array[j];
         }
+        array[j + 1] = key;
+        cout << endl << "corrida " << i << " : ";
+        printArray(array, length);
+        cout << endl;
     }
 }
 int main() {
@@ -48,7 +73,7 @@ int main() {
     cout << endl
         << "Array desordenado: ";
     printArray(array, length);
-    // sort array by shaker sort
+    // sort array by binary insertion sort
     binaryInsertionSort(array, length);
     //------------------------//
     cout << endl
