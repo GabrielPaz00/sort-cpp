@@ -143,9 +143,6 @@ void binaryInsertionSort(int* array, int length) {
             array[j + 1] = array[j];
         }
         array[j + 1] = key;
-        cout << endl << "corrida " << i << " : ";
-        printArray(array, length);
-        cout << endl;
     }
 }
 void shellSort() {
@@ -264,7 +261,7 @@ void sortArray(int* array, int length, int op) {
         break;
     case 6:
         shellSort();
-        message = "shell sort";
+        message = "Shell sort";
         break;
     case 7:
         quickSort(array, 0, length - 1);

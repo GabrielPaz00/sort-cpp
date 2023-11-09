@@ -54,9 +54,6 @@ void binaryInsertionSort(int* array, int length) {
             array[j + 1] = array[j];
         }
         array[j + 1] = key;
-        cout << endl << "corrida " << i << " : ";
-        printArray(array, length);
-        cout << endl;
     }
 }
 int main() {
