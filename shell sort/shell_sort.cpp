@@ -13,19 +13,21 @@ void printArray(int* array, int length) {
     }
     cout << "]" << endl;
 }
+/**
+ * @brief Sorts an array of integers using the Shell Sort algorithm.
+ *
+ * @param array Array of integers to be sorted.
+ * @param length Length of the array.
+ */
 void shellSort(int* array, int length) {
-    int i;
-    int j = length - 1;
-    int aux;
-
-    for (int i = 0; i < j; i++) {
-        // left
-        for (int i = 0; i < j; i++) {
-            if (array[i] > array[i + 1]) {
-                aux = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = aux;
+    int i, j, key, gap;
+    for (gap = length / 2; gap > 0; gap /= 2) {
+        for (i = gap; i < length; i++) {
+            key = array[i];
+            for (j = i; j >= gap && array[j - gap] > key; j -= gap) {
+                array[j] = array[j - gap];
             }
+            array[j] = key;
         }
     }
 }

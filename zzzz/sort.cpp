@@ -145,8 +145,23 @@ void binaryInsertionSort(int* array, int length) {
         array[j + 1] = key;
     }
 }
-void shellSort() {
-
+/**
+  * @brief Ordena un arreglo de enteros utilizando el algoritmo Shell Sort.
+  *
+  * @param array Arreglo de enteros a ordenar.
+  * @param length Longitud del arreglo.
+  */
+void shellSort(int* array, int length) {
+    int i, j, key, gap;
+    for (gap = length / 2; gap > 0; gap /= 2) {
+        for (i = gap; i < length; i++) {
+            key = array[i];
+            for (j = i; j >= gap && array[j - gap] > key; j -= gap) {
+                array[j] = array[j - gap];
+            }
+            array[j] = key;
+        }
+    }
 }
 /**
  * @brief Particiona un arreglo alrededor de un elemento pivote.
@@ -260,7 +275,7 @@ void sortArray(int* array, int length, int op) {
         message = "Binary insertion sort";
         break;
     case 6:
-        shellSort();
+        shellSort(array, length);
         message = "Shell sort";
         break;
     case 7:
