@@ -63,7 +63,7 @@ int main() {
   cout << endl
     << "Array desordenado: ";
   printArray(array, length);
-  // sort array by shaker sort
+  // sort array by bubble sort
   bubbleSort(array, length);
   //------------------------//
   cout << endl

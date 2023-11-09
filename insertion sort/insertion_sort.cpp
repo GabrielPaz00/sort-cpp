@@ -48,7 +48,7 @@ int main() {
     cout << endl
         << "Array desordenado: ";
     printArray(array, length);
-    // sort array by shaker sort
+    // sort array by Insertion sort
     insertionSort(array, length);
     //------------------------//
     cout << endl

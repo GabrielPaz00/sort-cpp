@@ -32,15 +32,6 @@ void binaryInsertionSort(int* array, int length) {
                 array[i + 1] = aux;
             }
         }
-        /*
-        //right
-        for (int i = j; i > 0; i--) {
-          if (array[i] < array[i - 1]) {
-            aux = array[i];
-            array[i] = array[i - 1];
-            array[i - 1] = aux;
-          }
-        }*/
     }
 }
 int main() {
