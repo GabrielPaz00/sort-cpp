@@ -7,14 +7,11 @@ void printArray(int* array, int length) {
     cout << "[";
     for (int i = 0; i < length; i++) {
         cout << array[i];
-        if (i == length - 1) {
-            cout << "]";
-        }
-        else {
+        if (i != length - 1) {
             cout << ", ";
         }
     }
-    cout << endl;
+    cout << "]" << endl;
 }
 /**
  * Sorts an array of integers using the selection sort algorithm.

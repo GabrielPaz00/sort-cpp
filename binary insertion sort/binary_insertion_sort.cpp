@@ -31,7 +31,7 @@ int binarySearch(int* array, int low, int high, int key) {
     }
     int mid = (low + high) / 2;
     if (key == array[mid]) {
-        return mid;
+        return mid + 1;
     }
     if (key > array[mid]) {
         return binarySearch(array, mid + 1, high, key);
