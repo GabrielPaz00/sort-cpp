@@ -226,9 +226,9 @@ void heapify(int* array, int length, int i) {
  * @param length Longitud del arreglo.
  */
 void heapSort(int* array, int length) {
-    for (int i = length / 2 - 1; i >= 0; i--)
+    for (int i = length / 2 - 1; i >= 0; i--) {
         heapify(array, length, i);
-
+    }
     for (int i = length - 1; i >= 0; i--) {
         swap(array[0], array[i]);
         heapify(array, i, 0);

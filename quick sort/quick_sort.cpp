@@ -43,6 +43,7 @@ int partition(int* array, int low, int high) {
 void quickSort(int* array, int low, int high) {
     if (low < high) {
         int pivot = partition(array, low, high);
+        printArray(array, high + 1);
         quickSort(array, low, pivot - 1);
         quickSort(array, pivot + 1, high);
     }
