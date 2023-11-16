@@ -25,16 +25,19 @@ void selectionSort(int* array, int length) {
     int aux;
 
     for (i = 0; i < n; i++) {
-        // left to right
+        bool isExchange = false;
         int min_index = i;
         for (int j = i + 1; j < length; j++) {
             if (array[j] < array[min_index]) {
                 min_index = j;
+                isExchange = true;
             }
         }
-        aux = array[i];
-        array[i] = array[min_index];
-        array[min_index] = aux;
+        swap(array[i], array[min_index]);
+        if (isExchange == true) {
+            cout << endl << "pasada " << i + 1 << " : ";
+            printArray(array, length);
+        }
     }
 }
 int main() {
