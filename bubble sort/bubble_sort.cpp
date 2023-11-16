@@ -25,14 +25,19 @@ void bubbleSort(int* array, int length) {
   int aux;
 
   for (int i = 0; i < j; i++) {
+    bool isExchange = false;
     // left
     for (int i = 0; i < j; i++) {
       if (array[i] > array[i + 1]) {
-        aux = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = aux;
+        swap(array[i], array[i + 1]);
+        isExchange = true;
       }
     }
+    if (isExchange == true) {
+      cout << endl << "pasada " << i + 1 << " : ";
+      printArray(array, length);
+    }
+
     /*
     //right
     for (int i = j; i > 0; i--) {
