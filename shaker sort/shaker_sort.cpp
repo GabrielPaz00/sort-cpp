@@ -31,10 +31,6 @@ void shakerSort(int* array, int length) {
     for (int i = 0; i < j; i++) {
       if (array[i] > array[i + 1]) {
         swap(array[i], array[i + 1]);
-        cout << "primera etapa : ";
-        cout << array[i + 1] << "<->" << array[i] << endl;
-        printArray(array, length);
-        cout << endl;
         isExchange = true;
       }
     }
@@ -42,10 +38,6 @@ void shakerSort(int* array, int length) {
     for (int i = j; i > 0; i--) {
       if (array[i] < array[i - 1]) {
         swap(array[i], array[i - 1]);
-        cout << "segunda etapa : ";
-        cout << array[i - 1] << "<->" << array[i] << endl;
-        printArray(array, length);
-        cout << endl;
         isExchange = true;
       }
     }
@@ -69,7 +61,6 @@ int main() {
   cout << endl
     << "Array desordenado: ";
   printArray(array, length);
-  cout << endl;
   // sort array by shaker sort
   shakerSort(array, length);
   //------------------------//
