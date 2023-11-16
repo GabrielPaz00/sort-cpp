@@ -22,24 +22,36 @@ void printArray(int* array, int length) {
 void shakerSort(int* array, int length) {
   int i;
   int j = length - 1;
-  int aux;
+  int n;
 
   for (int i = 0; i < j; i++, j--) {
     // left to right
+    bool isExchange = false;
+
     for (int i = 0; i < j; i++) {
       if (array[i] > array[i + 1]) {
-        aux = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = aux;
+        swap(array[i], array[i + 1]);
+        cout << "primera etapa : ";
+        cout << array[i + 1] << "<->" << array[i] << endl;
+        printArray(array, length);
+        cout << endl;
+        isExchange = true;
       }
     }
     // right to left
     for (int i = j; i > 0; i--) {
       if (array[i] < array[i - 1]) {
-        aux = array[i];
-        array[i] = array[i - 1];
-        array[i - 1] = aux;
+        swap(array[i], array[i - 1]);
+        cout << "segunda etapa : ";
+        cout << array[i - 1] << "<->" << array[i] << endl;
+        printArray(array, length);
+        cout << endl;
+        isExchange = true;
       }
+    }
+    if (isExchange == true) {
+      cout << endl << "pasada " << i + 1 << " : ";
+      printArray(array, length);
     }
   }
 }
@@ -57,6 +69,7 @@ int main() {
   cout << endl
     << "Array desordenado: ";
   printArray(array, length);
+  cout << endl;
   // sort array by shaker sort
   shakerSort(array, length);
   //------------------------//
