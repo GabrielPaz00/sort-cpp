@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <vector>
-#include "../includes/functions.h"
+#include "../includes/utilities.h"
 
 
 using namespace std;

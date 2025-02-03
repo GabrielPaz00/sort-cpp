@@ -3,16 +3,6 @@
 
 using namespace std;
 
-void printArray(int* array, int length) {
-    cout << "[";
-    for (int i = 0; i < length; i++) {
-        cout << array[i];
-        if (i != length - 1) {
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-}
 /**
  * @brief Partitions an array around a pivot element.
  *
@@ -47,26 +37,4 @@ void quickSort(int* array, int low, int high) {
         quickSort(array, low, pivot - 1);
         quickSort(array, pivot + 1, high);
     }
-}
-int main() {
-    int length;
-    cout << "Ingresa el tamaño del vector: ";
-    cin >> length;
-    int array[length];
-    cout << endl;
-    for (int i = 0; i < length; i++) {
-        cout << "Valor " << i + 1 << " : ";
-        cin >> array[i];
-    }
-    cout << endl << "Array desordenado: ";
-    printArray(array, length);
-    //quick sort
-    int low = 0;
-    int high = length - 1;
-    quickSort(array, low, high);
-    //---//
-    cout << endl << "Array ordenado: ";
-    printArray(array, length);
-    cout << endl;
-    return 0;
 }
